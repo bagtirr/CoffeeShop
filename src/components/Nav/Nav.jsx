@@ -1,4 +1,4 @@
-import { BlackLogo, WhiteLogo } from "../../../assets";
+import { BlackLogo, WhiteLogo } from "../../assets";
 
 import "./Nav.scss";
 

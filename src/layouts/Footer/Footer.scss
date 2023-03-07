@@ -1,0 +1,24 @@
+.footer {
+    height: 150px;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0 20px 0;
+}
+
+.footer .nav {
+    width: 360px;
+}
+
+.footer .nav__logo-img {
+    filter: none;
+}
+
+.footer .nav__item {
+    color: #000;
+    text-shadow: none;
+}
