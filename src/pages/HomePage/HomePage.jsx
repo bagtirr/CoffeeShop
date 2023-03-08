@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 import Nav from "../../components/Nav/Nav";
 import Divider from "../../layouts/Divider/Divider";
-import Footer from "../../layouts/Footer/Footer";
+import CoffeeList from "../../components/CoffeeList/CoffeeList";
 
 import "./HomePage.scss";
 
@@ -42,9 +42,9 @@ const HomePage = () => {
             <section className="our-best">
                 <div className="container our-best__container">
                     <h2 className="our-best__title">Our best</h2>
+                    <CoffeeList />
                 </div>
             </section>
-            <Footer />
         </Fragment>
     );
 };
