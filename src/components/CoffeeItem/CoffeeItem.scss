@@ -2,23 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     gap: 10px;
     width: 220px;
-    height: 240px;
+    height: 260px;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 8px;
     padding: 20px 20px;
-}
-
-.coffee-item__title {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
 }
 
+.coffee-item__img {
+    margin-bottom: auto;
+}
+
+.coffee-item__country {
+    align-self: flex-end;
+}
+
 .coffee-item__price {
     font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
     align-self: flex-end;
 }

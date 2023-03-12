@@ -1,12 +1,13 @@
-import { Solimo } from "../../assets";
 import "./CoffeeItem.scss";
 
-const CoffeeItem = () => {
+const CoffeeItem = props => {
+    const { name, country, price, img } = props;
     return (
         <li className="coffee-item">
-            <img src={Solimo} alt="coffee" className="coffee-item__img" />
-            <p className="coffee-item__title">Solimo Coffee Beans 2 kg</p>
-            <p className="coffee-item__price">10.73$</p>
+            <img src={require(`../../assets/products/${img}.png`)} alt={name} className="coffee-item__img" />
+            <p className="coffee-item__title">{name}</p>
+            <p className="coffee-item__country">{country}</p>
+            <p className="coffee-item__price">{price}$</p>
         </li>
     );
 };

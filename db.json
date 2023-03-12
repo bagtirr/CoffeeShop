@@ -1,0 +1,54 @@
+{
+    "coffee": [
+        {
+            "id": 1,
+            "name": "Solimo Coffee Beans 2 kg",
+            "country": "Kenya",
+            "price": "10.73",
+            "best": "true",
+            "img": "solimo"
+        },
+        {
+            "id": 2,
+            "name": "Presto Coffee Beans 1 kg",
+            "country": "Columbia",
+            "price": "15.99",
+            "best": "true",
+            "img": "presto"
+        },
+        {
+            "id": 3,
+            "name": "AROMISTICO Coffee 1 kg",
+            "country": "Brazil",
+            "price": "6.99",
+            "best": "true",
+            "img": "aromistico"
+        },
+        {
+            "id": 4,
+            "name": "AROMISTICO Coffee 1 kg",
+            "country": "Brazil",
+            "price": "6.99",
+            "best": "false",
+            "img": "aromistico"
+        }
+    ],
+    "filters": [
+        {
+            "id": 1,
+            "label": "All" 
+        },
+        {
+            "id": 2,
+            "label": "Brazil" 
+        },
+        {
+            "id": 3,
+            "label": "Kenya" 
+        },
+        {
+            "id": 4,
+            "label": "Columbia" 
+        }
+    ]
+}

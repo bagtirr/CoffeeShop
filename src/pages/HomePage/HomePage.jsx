@@ -42,7 +42,7 @@ const HomePage = () => {
             <section className="our-best">
                 <div className="container our-best__container">
                     <h2 className="our-best__title">Our best</h2>
-                    <CoffeeList />
+                    <CoffeeList bestCoffee={true} />
                 </div>
             </section>
         </Fragment>
