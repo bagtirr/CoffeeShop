@@ -8,7 +8,7 @@ const Header = props => {
         <header className="header">
             <Nav />
             <div className="container header__container">
-                <h1 className=" header__title">{title}</h1>
+                <h1 className=" header__title">Our Coffee</h1>
             </div>
         </header>
     );

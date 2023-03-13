@@ -1,12 +1,18 @@
-import HomePage from "../../pages/HomePage/HomePage";
-import Footer from "../../layouts/Footer/Footer";
-import "./App.scss";
 import { Fragment } from "react";
+
+import Header from "../../layouts/Header/Header";
+import HomePage from "../../pages/HomePage/HomePage";
+import CoffeePage from "../../pages/CoffeePage/CoffeePage";
+import Footer from "../../layouts/Footer/Footer";
+
+import "./App.scss";
 
 function App() {
     return (
         <Fragment>
-            <HomePage />
+            <Header />
+            <CoffeePage />
+            {/* <HomePage /> */}
             <Footer />
         </Fragment>
     );

@@ -1,4 +1,5 @@
 import { WhiteBeans, BlackBeans } from "../../assets";
+
 import "./Divider.scss";
 
 const Divider = props => {
