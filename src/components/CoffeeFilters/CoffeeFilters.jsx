@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAll, fetchFilters, changeActiveFilter } from "../../store/filters/filtersSlice";
+import { selectAll, fetchFilters, changeActiveFilter, changeSearchValue } from "../../store/filters/filtersSlice";
 import Spinner from "../../layouts/Spinner/Spinner";
 import ErrorMessage from "../../layouts/ErrorMessage/ErrorMessage";
 
@@ -8,12 +8,16 @@ import "./CoffeeFilters.scss";
 
 const CoffeeFilters = () => {
     const dispatch = useDispatch();
-    const { filtersLoadingStatus, activeFilter } = useSelector(state => state.filters);
+    const { filtersLoadingStatus, activeFilter, searchValue } = useSelector(state => state.filters);
     const filters = useSelector(state => selectAll(state));
 
     useEffect(() => {
         dispatch(fetchFilters());
     }, []);
+
+    const onChangeValue = e => {
+        dispatch(changeSearchValue(e.target.value));
+    };
 
     const renderFilters = items => {
         if (items.length === 0) {
@@ -42,10 +46,17 @@ const CoffeeFilters = () => {
         <div className="filters">
             <div className="filters__search">
                 <label htmlFor="filters__input">Lookiing for</label>
-                <input type="text" className="filters__input" id="filters__input" placeholder="start typing here..." />
+                <input
+                    type="text"
+                    className="filters__input"
+                    id="filters__input"
+                    placeholder="start typing here..."
+                    value={searchValue}
+                    onChange={onChangeValue}
+                />
             </div>
             <div className="filters__list">
-                <label htmlFor="filters__button">Or filter</label>
+                <label>Or filter</label>
                 {filtersLoadingStatus === "loading" ? <Spinner /> : ""}
 
                 {filtersLoadingStatus === "error" ? <ErrorMessage /> : ""}

@@ -13,15 +13,30 @@ const CoffeePage = () => {
     const title = "About our beans",
         img = "drink-coffee";
 
+    const countryValidation = (items, country) => {
+        if (country === "all") {
+            return items;
+        }
+
+        return items.filter(item => item.country === country);
+    };
+
+    const searchValidation = (items, searchText) => {
+        searchText = searchText.toLowerCase().trim();
+
+        if (searchText === "") {
+            return items;
+        }
+
+        return items.filter(item => item.name.toLowerCase().includes(searchText));
+    };
+
     const filteredCoffeeSelector = createSelector(
         state => state.filters.activeFilter,
+        state => state.filters.searchValue,
         selectAll,
-        (filter, coffee) => {
-            if (filter === "all") {
-                return coffee;
-            }
-
-            return coffee.filter(item => item.country === filter);
+        (filter, searchValue, coffee) => {
+            return countryValidation(searchValidation(coffee, searchValue), filter);
         }
     );
 
