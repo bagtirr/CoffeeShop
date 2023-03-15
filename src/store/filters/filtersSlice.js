@@ -4,7 +4,7 @@ import useHttp from "../../hooks/useHttp";
 const filtersAdapter = createEntityAdapter();
 
 const initialState = filtersAdapter.getInitialState({
-    filtersLoadingStatus: "idle",
+    filtersLoadingStatus: "loading",
     activeFilter: "all",
     searchValue: "",
 });

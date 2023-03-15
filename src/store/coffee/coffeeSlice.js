@@ -5,13 +5,21 @@ import useHttp from "../../hooks/useHttp";
 const coffeeAdapter = createEntityAdapter();
 
 const initialState = coffeeAdapter.getInitialState({
-    coffeeLoadingStatus: "idle",
+    coffeeLoadingStatus: "loading",
+    productLoadingStatus: "loading",
+    productData: {},
 });
 
 export const fetchCoffee = createAsyncThunk("coffee/fetchCoffee", () => {
     const { request } = useHttp();
 
-    return request("http://localhost:3001/coffee");
+    return request(`http://localhost:3001/coffee/`);
+});
+
+export const fetchSingleProduct = createAsyncThunk("coffee/fetchSingleProduct", id => {
+    const { request } = useHttp();
+
+    return request(`http://localhost:3001/coffee/${id}/`);
 });
 
 const coffeeSlice = createSlice({
@@ -28,6 +36,16 @@ const coffeeSlice = createSlice({
             })
             .addCase(fetchCoffee.rejected, state => {
                 state.coffeeLoadingStatus = "error";
+            })
+            .addCase(fetchSingleProduct.pending, state => {
+                state.productLoadingStatus = "loading";
+            })
+            .addCase(fetchSingleProduct.fulfilled, (state, action) => {
+                state.productLoadingStatus = "idle";
+                state.productData = action.payload;
+            })
+            .addCase(fetchSingleProduct.rejected, state => {
+                state.productLoadingStatus = "error";
             })
             .addDefaultCase(() => {});
     },

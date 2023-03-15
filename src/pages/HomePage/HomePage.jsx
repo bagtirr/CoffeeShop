@@ -33,7 +33,7 @@ const HomePage = () => {
             </header>
             <section className="home-about">
                 <div className="container home-about__container">
-                    <h2 className="home-about__title">About Us</h2>
+                    <h2 className="title home-about__title">About Us</h2>
                     <Divider />
                     <p className="description home-about__description">
                         Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at
@@ -51,7 +51,7 @@ const HomePage = () => {
             </section>
             <section className="our-best">
                 <div className="container our-best__container">
-                    <h2 className="our-best__title">Our best</h2>
+                    <h2 className="title our-best__title">Our best</h2>
                     <CoffeeList data={coffee} />
                 </div>
             </section>

@@ -71,9 +71,6 @@
 }
 
 .home-about__title {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 35px;
     margin-bottom: 20px;
 }
 
@@ -84,6 +81,7 @@
 .home-about__description {
     max-width: 590px;
     margin-bottom: 20px;
+    text-align: center;
     &:last-child {
         margin-bottom: 0;
     }
@@ -103,8 +101,5 @@
 }
 
 .our-best__title {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 35px;
     margin-bottom: 40px;
 }

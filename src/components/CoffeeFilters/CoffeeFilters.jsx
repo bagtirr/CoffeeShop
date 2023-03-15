@@ -34,7 +34,7 @@ const CoffeeFilters = () => {
                     id="filters__button"
                     onClick={() => dispatch(changeActiveFilter(label))}
                 >
-                    {label}
+                    <span>{label}</span>
                 </button>
             );
         });
@@ -57,6 +57,7 @@ const CoffeeFilters = () => {
             </div>
             <div className="filters__list">
                 <label>Or filter</label>
+
                 {filtersLoadingStatus === "loading" ? <Spinner /> : ""}
 
                 {filtersLoadingStatus === "error" ? <ErrorMessage /> : ""}

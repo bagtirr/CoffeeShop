@@ -13,6 +13,12 @@ const CoffeePage = () => {
     const title = "About our beans",
         img = "drink-coffee";
 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCoffee());
+    }, []);
+
     const countryValidation = (items, country) => {
         if (country === "all") {
             return items;
@@ -41,12 +47,6 @@ const CoffeePage = () => {
     );
 
     const filteredCoffee = useSelector(filteredCoffeeSelector);
-
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchCoffee());
-    }, []);
 
     return (
         <Fragment>
