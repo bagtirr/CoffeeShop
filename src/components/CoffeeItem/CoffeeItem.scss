@@ -6,12 +6,17 @@
     gap: 10px;
     width: 220px;
     height: 260px;
-    background: rgba(255, 255, 255, 0.65);
+    background: #ffffff;
     border-radius: 8px;
     padding: 20px 20px;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
+    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.25));
+    transition: filter 0.3s ease-in;
+    &:hover {
+        filter: drop-shadow(5px 20px 35px rgba(0, 0, 0, 0.35));
+    }
 }
 
 .coffee-item__img {

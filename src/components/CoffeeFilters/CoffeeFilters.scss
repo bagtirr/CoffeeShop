@@ -1,0 +1,109 @@
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+    margin-bottom: 60px;
+
+    & label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+
+//* ----- Search -----
+.filters__search {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.filters__input {
+    width: 180px;
+    height: 30px;
+    background: #ffffff;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 5px;
+    font-family: "Merienda";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    transition: box-shadow 0.3s ease-in;
+
+    &:focus {
+        box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+        &::placeholder {
+            color: transparent;
+        }
+    }
+
+    &::placeholder {
+        text-align: center;
+        color: rgba(0, 0, 0, 0.5);
+        transition: color 0.3s ease;
+    }
+}
+
+//* ----- Buttons -----
+.filters__list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    & label {
+        margin-right: 30px;
+    }
+
+    & .spinner {
+        width: 30px;
+        height: 30px;
+    }
+
+    & .error-message {
+        flex-direction: row;
+
+        &__icon {
+            width: 20px;
+        }
+
+        &__text {
+            font-size: 15px;
+
+            &:last-of-type {
+                display: none;
+            }
+        }
+    }
+}
+
+.filters__button {
+    width: 75px;
+    height: 30px;
+    background: #ffffff;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-family: "Merienda";
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    transition: all 0.5s ease-in;
+
+    &:first-of-type {
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    &:last-of-type {
+        border-radius: 0px 4px 4px 0px;
+    }
+}
+
+.filters__button_active {
+    background-color: #000;
+    color: #fff;
+    box-shadow: none;
+}

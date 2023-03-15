@@ -36,18 +36,14 @@
     "filters": [
         {
             "id": 1,
-            "label": "All" 
-        },
-        {
-            "id": 2,
             "label": "Brazil" 
         },
         {
-            "id": 3,
+            "id": 2,
             "label": "Kenya" 
         },
         {
-            "id": 4,
+            "id": 3,
             "label": "Columbia" 
         }
     ]

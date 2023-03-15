@@ -1,4 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectAll, fetchCoffee } from "../../store/coffee/coffeeSlice";
 
 import Nav from "../../components/Nav/Nav";
 import Divider from "../../layouts/Divider/Divider";
@@ -7,6 +9,14 @@ import CoffeeList from "../../components/CoffeeList/CoffeeList";
 import "./HomePage.scss";
 
 const HomePage = () => {
+    const coffee = useSelector(state => selectAll(state)).filter(item => item.best === "true");
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCoffee());
+    }, []);
+
     return (
         <Fragment>
             <header className="home-header">
@@ -42,7 +52,7 @@ const HomePage = () => {
             <section className="our-best">
                 <div className="container our-best__container">
                     <h2 className="our-best__title">Our best</h2>
-                    <CoffeeList bestCoffee={true} />
+                    <CoffeeList data={coffee} />
                 </div>
             </section>
         </Fragment>
