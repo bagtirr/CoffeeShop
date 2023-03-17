@@ -1,27 +1,46 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleProduct } from "../../store/coffee/coffeeSlice";
-
+import { useNavigate, useParams } from "react-router-dom";
+// Components
 import Spinner from "../../layouts/Spinner/Spinner";
-import ErrorMessage from "../../layouts/ErrorMessage/ErrorMessage";
 import Divider from "../../layouts/Divider/Divider";
-
+import Header from "../../layouts/Header/Header";
+// Styles
 import "./ProductPage.scss";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
+import { Helmet } from "react-helmet";
 
 const ProductPage = () => {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
+    const { id } = useParams();
     const { productLoadingStatus } = useSelector(state => state.coffee);
-    const { name, country, price } = useSelector(state => state.coffee.productData);
+    const { name, country, price, img } = useSelector(state => state.coffee.productData);
 
     useEffect(() => {
-        dispatch(fetchSingleProduct("2"));
+        dispatch(fetchSingleProduct(id));
     }, []);
+
+    const onPreviousPage = () => {
+        navigate(-1);
+    };
+
+    if (productLoadingStatus === "error") {
+        return <NotFoundPage />;
+    }
 
     const renderElements = () => {
         return (
             <Fragment>
-                <img src={require("../../assets/products/aromistico-big.png")} alt={name} className="product__image" />
+                <button className="back-button" onClick={onPreviousPage}>
+                    back
+                </button>
+                <img
+                    src={`${process.env.PUBLIC_URL}/images/products/${img}-big.png`}
+                    alt={name}
+                    className="product__image"
+                />
                 <div className="product__about">
                     <h2 className="title product__about-title">About it</h2>
                     <Divider />
@@ -47,13 +66,21 @@ const ProductPage = () => {
     const elements = renderElements();
 
     return (
-        <section className="product">
-            <div className="container product__container">
-                {productLoadingStatus === "loading" ? <Spinner /> : ""}
-                {productLoadingStatus === "error" ? <ErrorMessage /> : ""}
-                {productLoadingStatus === "idle" ? elements : ""}
-            </div>
-        </section>
+        <Fragment>
+            <Helmet>
+                <meta name="description" content={`${name} - beans`} />
+                <title>{`${name} - Coffee House`}</title>
+            </Helmet>
+
+            <Header clazz={"coffee-header"} title={"Our Coffee"} />
+
+            <section className="product">
+                <div className="container product__container">
+                    {productLoadingStatus === "loading" ? <Spinner /> : ""}
+                    {productLoadingStatus === "idle" ? elements : ""}
+                </div>
+            </section>
+        </Fragment>
     );
 };
 

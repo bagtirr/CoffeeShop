@@ -1,22 +1,29 @@
-import { Fragment } from "react";
+import { Fragment, lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import Header from "../../layouts/Header/Header";
 import Footer from "../../layouts/Footer/Footer";
-import HomePage from "../../pages/HomePage/HomePage";
-import CoffeePage from "../../pages/CoffeePage/CoffeePage";
-import ProductPage from "../../pages/ProductPage/ProductPage";
-import GoodsPage from "../../pages/GoodsPage/GoodsPage";
+import Loading from "../../layouts/Loading/Loading";
 
 import "./App.scss";
+
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const CoffeePage = lazy(() => import("../../pages/CoffeePage/CoffeePage"));
+const ProductPage = lazy(() => import("../../pages/ProductPage/ProductPage"));
+const GoodsPage = lazy(() => import("../../pages/GoodsPage/GoodsPage"));
+const NotFoundPage = lazy(() => import("../../pages/NotFoundPage/NotFoundPage"));
 
 function App() {
     return (
         <Fragment>
-            <Header />
-            {/* <CoffeePage /> */}
-            {/* <HomePage /> */}
-            {/* <ProductPage /> */}
-            <GoodsPage />
+            <Suspense fallback={<Loading />}>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/coffee" element={<CoffeePage />} />
+                    <Route path="/coffee/:id" element={<ProductPage />} />
+                    <Route path="/our-goods" element={<GoodsPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+            </Suspense>
             <Footer />
         </Fragment>
     );

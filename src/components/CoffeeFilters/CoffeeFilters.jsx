@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAll, fetchFilters, changeActiveFilter, changeSearchValue } from "../../store/filters/filtersSlice";
 import Spinner from "../../layouts/Spinner/Spinner";
-import ErrorMessage from "../../layouts/ErrorMessage/ErrorMessage";
 
 import "./CoffeeFilters.scss";
 
@@ -60,7 +59,7 @@ const CoffeeFilters = () => {
 
                 {filtersLoadingStatus === "loading" ? <Spinner /> : ""}
 
-                {filtersLoadingStatus === "error" ? <ErrorMessage /> : ""}
+                {filtersLoadingStatus === "error" ? <p className="error">(Failed to load filters)</p> : ""}
 
                 {filtersLoadingStatus === "idle" ? elements : ""}
             </div>

@@ -1,12 +1,15 @@
 import { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAll, fetchCoffee } from "../../store/coffee/coffeeSlice";
+import { Link } from "react-router-dom";
 
+//Components
 import Nav from "../../components/Nav/Nav";
 import Divider from "../../layouts/Divider/Divider";
 import CoffeeList from "../../components/CoffeeList/CoffeeList";
-
+// Styles
 import "./HomePage.scss";
+import { Helmet } from "react-helmet";
 
 const HomePage = () => {
     const coffee = useSelector(state => selectAll(state)).filter(item => item.best === "true");
@@ -19,6 +22,11 @@ const HomePage = () => {
 
     return (
         <Fragment>
+            <Helmet>
+                <meta name="description" content='Coffee beans shop "Everything You Love About Coffee"' />
+                <title>Coffee House</title>
+            </Helmet>
+
             <header className="home-header">
                 <Nav />
                 <div className="container home-header__container">
@@ -26,11 +34,12 @@ const HomePage = () => {
                     <Divider color="white" />
                     <h2 className="home-header__subtitle">We makes every day full of energy and taste</h2>
                     <h2 className="home-header__subtitle">Want to try our beans?</h2>
-                    <a href="#" className="home-header__button">
+                    <Link to="/coffee" className="home-header__button">
                         More
-                    </a>
+                    </Link>
                 </div>
             </header>
+
             <section className="home-about">
                 <div className="container home-about__container">
                     <h2 className="title home-about__title">About Us</h2>
@@ -49,6 +58,7 @@ const HomePage = () => {
                     </p>
                 </div>
             </section>
+
             <section className="our-best">
                 <div className="container our-best__container">
                     <h2 className="title our-best__title">Our best</h2>

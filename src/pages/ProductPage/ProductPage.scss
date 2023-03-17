@@ -1,3 +1,8 @@
+.product__container .back-button {
+    align-self: flex-start;
+    width: 80px;
+}
+
 .product__container {
     display: flex;
     gap: 55px;

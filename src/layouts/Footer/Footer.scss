@@ -22,4 +22,8 @@
 .footer .nav__item {
     color: #000;
     text-shadow: none;
+
+    &::before {
+        background-color: #000;
+    }
 }

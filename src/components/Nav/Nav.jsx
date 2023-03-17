@@ -1,5 +1,6 @@
-import { BlackLogo, WhiteLogo } from "../../assets";
+import { NavLink } from "react-router-dom";
 
+import { BlackLogo, WhiteLogo } from "../../assets";
 import "./Nav.scss";
 
 const Nav = props => {
@@ -9,19 +10,25 @@ const Nav = props => {
 
     return (
         <nav className="nav">
-            <a href="#" className="nav__logo-link">
+            <NavLink to="/" className="nav__logo-link">
                 <img src={logo} alt="coffee beans" className="nav__logo-img" />
-            </a>
+            </NavLink>
             <div className="nav__list">
-                <a href="#" className="nav__item">
+                <NavLink to="/" className={({ isActive }) => (isActive ? "nav__item nav__item_active" : "nav__item")}>
                     Coffee house
-                </a>
-                <a href="#" className="nav__item">
+                </NavLink>
+                <NavLink
+                    to="/coffee"
+                    className={({ isActive }) => (isActive ? "nav__item nav__item_active" : "nav__item")}
+                >
                     Our coffee
-                </a>
-                <a href="#" className="nav__item">
+                </NavLink>
+                <NavLink
+                    to="/our-goods"
+                    className={({ isActive }) => (isActive ? "nav__item nav__item_active" : "nav__item")}
+                >
                     For your pleasure
-                </a>
+                </NavLink>
             </div>
         </nav>
     );

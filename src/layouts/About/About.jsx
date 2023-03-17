@@ -8,7 +8,11 @@ const About = props => {
     return (
         <section className="about">
             <div className="container about__container">
-                <img src={require(`../../assets/abouts/${img}.png`)} alt="cup of coffee" className="about__image" />
+                <img
+                    src={process.env.PUBLIC_URL + `/images/abouts/${img}.png`}
+                    alt="cup of coffee"
+                    className="about__image"
+                />
                 <div className="about__text-content">
                     <h2 className="title about__title">{title}</h2>
                     <Divider />

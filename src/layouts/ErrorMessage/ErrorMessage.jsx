@@ -1,6 +1,7 @@
 import "./ErrorMessage.scss";
 
-const ErrorMessage = () => {
+const ErrorMessage = props => {
+    const { message = "Something went wrong" } = props;
     return (
         <div className="error-message">
             <div className="error-message__icon">
@@ -25,7 +26,7 @@ const ErrorMessage = () => {
                 </svg>
             </div>
             <p className="error-message__text">404</p>
-            <p className="error-message__text">Something went wrong</p>
+            <p className="error-message__text">{message}</p>
         </div>
     );
 };

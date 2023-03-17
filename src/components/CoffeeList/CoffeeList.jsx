@@ -14,7 +14,7 @@ const CoffeeList = props => {
     if (coffeeLoadingStatus === "loading") {
         return <Spinner />;
     } else if (coffeeLoadingStatus === "error") {
-        return <ErrorMessage />;
+        return <ErrorMessage message={"Failed to load products :("} />;
     }
 
     const renderCoffee = items => {
@@ -22,8 +22,8 @@ const CoffeeList = props => {
             return <p className="error">Products not found</p>;
         }
 
-        return items.map(({ id, best, ...props }) => {
-            return <CoffeeItem key={id} {...props} />;
+        return items.map(({ id, ...props }) => {
+            return <CoffeeItem key={id} id={id} {...props} />;
         });
     };
 

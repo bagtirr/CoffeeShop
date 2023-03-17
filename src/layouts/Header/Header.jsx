@@ -3,12 +3,13 @@ import Nav from "../../components/Nav/Nav";
 import "./Header.scss";
 
 const Header = props => {
-    const { title } = props;
+    const { title, clazz } = props;
+
     return (
-        <header className="header">
+        <header className={`header ${clazz}`}>
             <Nav />
             <div className="container header__container">
-                <h1 className=" header__title">Our Coffee</h1>
+                <h1 className=" header__title">{title}</h1>
             </div>
         </header>
     );

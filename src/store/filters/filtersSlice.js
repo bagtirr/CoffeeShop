@@ -5,7 +5,7 @@ const filtersAdapter = createEntityAdapter();
 
 const initialState = filtersAdapter.getInitialState({
     filtersLoadingStatus: "loading",
-    activeFilter: "all",
+    activeFilter: "",
     searchValue: "",
 });
 
@@ -19,7 +19,7 @@ const filtersSlice = createSlice({
     name: "filters",
     reducers: {
         changeActiveFilter: (state, action) => {
-            state.activeFilter = action.payload === state.activeFilter ? "all" : action.payload;
+            state.activeFilter = action.payload === state.activeFilter ? "" : action.payload;
         },
         changeSearchValue: (state, action) => {
             state.searchValue = action.payload;

@@ -3,16 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectAll, fetchCoffee } from "../../store/coffee/coffeeSlice";
 import { createSelector } from "@reduxjs/toolkit";
 
+import Header from "../../layouts/Header/Header";
 import About from "../../layouts/About/About";
 import CoffeeList from "../../components/CoffeeList/CoffeeList";
 import CoffeeFilters from "../../components/CoffeeFilters/CoffeeFilters";
 
 import "./CoffeePage.scss";
+import { Helmet } from "react-helmet";
 
 const CoffeePage = () => {
-    const title = "About our beans",
-        img = "drink-coffee";
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,7 +19,7 @@ const CoffeePage = () => {
     }, []);
 
     const countryValidation = (items, country) => {
-        if (country === "all") {
+        if (!country) {
             return items;
         }
 
@@ -30,7 +29,7 @@ const CoffeePage = () => {
     const searchValidation = (items, searchText) => {
         searchText = searchText.toLowerCase().trim();
 
-        if (searchText === "") {
+        if (!searchText) {
             return items;
         }
 
@@ -50,7 +49,15 @@ const CoffeePage = () => {
 
     return (
         <Fragment>
-            <About title={title} img={img} />
+            <Helmet>
+                <meta name="description" content="our coffee list page" />
+                <title>Our coffee</title>
+            </Helmet>
+
+            <Header clazz={"coffee-header"} title={"Our Coffee"} />
+
+            <About title={"About our beans"} img={"drink-coffee"} />
+
             <section className="products">
                 <div className="container products__container">
                     <CoffeeFilters />

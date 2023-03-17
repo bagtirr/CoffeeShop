@@ -1,0 +1,12 @@
+.loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+
+    & .spinner {
+        width: 100px;
+        height: 100px;
+    }
+}
