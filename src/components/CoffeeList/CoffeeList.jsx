@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 import CoffeeItem from "../CoffeeItem/CoffeeItem";
 import Spinner from "../../layouts/Spinner/Spinner";
@@ -29,7 +30,13 @@ const CoffeeList = props => {
 
     const elements = renderCoffee(data);
 
-    return <ul className="coffee-list">{elements}</ul>;
+    return (
+        <LayoutGroup>
+            <motion.ul layout className="coffee-list">
+                <AnimatePresence mode="wait">{elements}</AnimatePresence>
+            </motion.ul>
+        </LayoutGroup>
+    );
 };
 
 export default CoffeeList;
