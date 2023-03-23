@@ -1,42 +1,53 @@
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { useGetAllCoffeeQuery } from "../../api/coffeeApi";
 
-import CoffeeItem from "../CoffeeItem/CoffeeItem";
-import Spinner from "../../layouts/Spinner/Spinner";
 import ErrorMessage from "../../layouts/ErrorMessage/ErrorMessage";
+import Spinner from "../../layouts/Spinner/Spinner";
+import sortProducts from "../../utils/sortProducts";
+import CoffeeItem from "../CoffeeItem/CoffeeItem";
 
 import "./CoffeeList.scss";
 
 const CoffeeList = props => {
-    const { data } = props;
+	const { data: coffee = [], isLoading, isError } = useGetAllCoffeeQuery();
+	const { activeFilter, searchValue } = useSelector(state => state.filters);
+	const { best, all } = props;
 
-    const { coffeeLoadingStatus } = useSelector(state => state.coffee);
+	const filteredCoffee = useMemo(() => {
+		return sortProducts(coffee, best, activeFilter, searchValue);
+	}, [activeFilter, searchValue, coffee]);
 
-    if (coffeeLoadingStatus === "loading") {
-        return <Spinner />;
-    } else if (coffeeLoadingStatus === "error") {
-        return <ErrorMessage message={"Failed to load products :("} />;
-    }
+	if (isLoading) {
+		return <Spinner />;
+	} else if (isError) {
+		return <ErrorMessage message={"Failed to load products :("} />;
+	}
 
-    const renderCoffee = items => {
-        if (items.length === 0) {
-            return <p className="error">Products not found</p>;
-        }
+	const renderCoffee = items => {
+		if (items.length === 0) {
+			return (
+				<motion.p layout className="error">
+					Products not found
+				</motion.p>
+			);
+		}
 
-        return items.map(({ id, ...props }) => {
-            return <CoffeeItem key={id} id={id} {...props} />;
-        });
-    };
+		return items.map(({ id, ...props }) => {
+			return <CoffeeItem key={id} id={id} {...props} />;
+		});
+	};
 
-    const elements = renderCoffee(data);
+	const elements = renderCoffee(all ? coffee : filteredCoffee);
 
-    return (
-        <LayoutGroup>
-            <motion.ul layout className="coffee-list">
-                <AnimatePresence mode="wait">{elements}</AnimatePresence>
-            </motion.ul>
-        </LayoutGroup>
-    );
+	return (
+		<LayoutGroup>
+			<motion.ul layout className="coffee-list">
+				<AnimatePresence mode="async">{elements}</AnimatePresence>
+			</motion.ul>
+		</LayoutGroup>
+	);
 };
 
 export default CoffeeList;

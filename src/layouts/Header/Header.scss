@@ -1,31 +1,27 @@
 .header {
-    color: #fff;
-    padding: 50px 0 85px 0;
+	color: #fff;
+	padding: 50px 0 85px 0;
 }
 
 .header .nav {
-    margin-bottom: 60px;
+	margin-bottom: 60px;
 }
 
 .header__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.header__title {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 58px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .coffee-header {
-    background: url("../../assets/backgrounds/coffee-bg.png") no-repeat;
-    background-size: cover;
+	background: url("../../assets/backgrounds/coffee-bg.png") no-repeat;
+	background-size: cover;
+	background-position: center, center;
 }
 
 .goods-header {
-    background: url("../../assets/backgrounds/pleasure-bg.png") no-repeat;
-    background-size: cover;
+	background: url("../../assets/backgrounds/pleasure-bg.png") no-repeat;
+	background-size: cover;
+	background-position: center, center;
 }
