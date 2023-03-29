@@ -3,12 +3,9 @@ import { Routes, Route } from "react-router-dom";
 
 import Footer from "../../layouts/Footer/Footer";
 import Spinner from "../../layouts/Spinner/Spinner";
+
 import "./App.scss";
-// import HomePage from "../../pages/HomePage/HomePage";
-// import CoffeePage from "../../pages/CoffeePage/CoffeePage";
-// import ProductPage from "../../pages/ProductPage/ProductPage";
-// import GoodsPage from "../../pages/GoodsPage/GoodsPage";
-// import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CoffeePage = lazy(() => import("../../pages/CoffeePage/CoffeePage"));
 const ProductPage = lazy(() => import("../../pages/ProductPage/ProductPage"));

@@ -25,14 +25,12 @@ const HomePage = () => {
 					<Divider color="white" />
 					<motion.h2
 						variants={textAnimation("left", "spring", 2, 1.3)}
-						className="subtitle home-header__subtitle"
-					>
+						className="subtitle home-header__subtitle">
 						We makes every day full of energy and taste
 					</motion.h2>
 					<motion.h2
 						variants={textAnimation("right", "spring", 2, 1.3)}
-						className="subtitle home-header__subtitle"
-					>
+						className="subtitle home-header__subtitle">
 						Want to try our beans?
 					</motion.h2>
 					<Link to="/coffee" className="home-header__button">
@@ -40,7 +38,6 @@ const HomePage = () => {
 					</Link>
 				</div>
 			</motion.header>
-
 			<motion.section initial="hidden" animate="visable" className="home-about">
 				<div className="container home-about__container">
 					<motion.h2 variants={titleAnimation(2.3)} className="subtitle home-about__subtitle">
@@ -49,8 +46,7 @@ const HomePage = () => {
 					<Divider />
 					<motion.p
 						variants={textAnimation("up", "spring", 2.5, 1.3)}
-						className="description home-about__description"
-					>
+						className="description home-about__description">
 						Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible. Afraid at
 						highly months do things on at. Situation recommend objection do intention so questions. As
 						greatly removed calling pleased improve an. Last ask him cold feel met spot shy want. Children
@@ -58,8 +54,7 @@ const HomePage = () => {
 					</motion.p>
 					<motion.p
 						variants={textAnimation("up", "spring", 3.5, 1.3)}
-						className="description home-about__description"
-					>
+						className="description home-about__description">
 						Now residence dashwoods she excellent you. Shade being under his bed her, Much read on as draw.
 						Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end
 						marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope.
@@ -67,18 +62,15 @@ const HomePage = () => {
 					</motion.p>
 				</div>
 			</motion.section>
-
 			<motion.section
 				initial="hidden"
 				whileInView="visable"
 				viewport={{ amount: 0.4, once: true }}
-				className="our-best"
-			>
+				className="our-best">
 				<div className="container our-best__container">
 					<motion.h2 variants={titleAnimation()} className="subtitle our-best__subtitle">
 						Our best
 					</motion.h2>
-
 					<CoffeeList best={true} />
 				</div>
 			</motion.section>

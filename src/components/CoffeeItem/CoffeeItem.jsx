@@ -13,6 +13,7 @@ const cardAnimation = delay => {
 
 const CoffeeItem = props => {
 	const { id, name, country, price, img } = props;
+
 	return (
 		<motion.li
 			layout
@@ -20,8 +21,7 @@ const CoffeeItem = props => {
 			animate="visable"
 			exit="exit"
 			variants={cardAnimation(id)}
-			className="coffee-item"
-		>
+			className="coffee-item">
 			<Link className="coffee-item__link" to={`/coffee/${id}`}>
 				<img
 					src={process.env.PUBLIC_URL + `/images/products/${img}.png`}

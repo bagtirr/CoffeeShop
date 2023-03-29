@@ -4,8 +4,6 @@ import Header from "../../layouts/Header/Header";
 import About from "../../layouts/About/About";
 import CoffeeList from "../../components/CoffeeList/CoffeeList";
 import CoffeeFilters from "../../components/CoffeeFilters/CoffeeFilters";
-// Styles
-import "./CoffeePage.scss";
 
 const CoffeePage = () => {
 	return (

@@ -8,8 +8,7 @@ const ErrorMessage = ({ message = "Something went wrong" }) => {
 					height="100%"
 					style={{ overflow: "visible", enableBackground: "new 0 0 32 32" }}
 					viewBox="0 0 32 32"
-					width="100%"
-				>
+					width="100%">
 					<g>
 						<g id="Error_1_">
 							<g id="Error">

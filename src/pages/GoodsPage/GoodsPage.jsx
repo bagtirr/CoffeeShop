@@ -3,8 +3,6 @@ import { Helmet } from "react-helmet";
 import CoffeeList from "../../components/CoffeeList/CoffeeList";
 import Header from "../../layouts/Header/Header";
 import About from "../../layouts/About/About";
-// Styles
-import "./GoodsPage.scss";
 
 const GoodsPage = () => {
 	return (

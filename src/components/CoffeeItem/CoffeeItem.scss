@@ -1,36 +1,30 @@
 .coffee-item__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    width: 220px;
-    height: 260px;
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 20px 20px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #000;
-    text-decoration: none;
-    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.25));
-    transition: filter 0.3s ease-in;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+	gap: 10px;
+	width: 220px;
+	height: 260px;
+	background: #ffffff;
+	border-radius: 8px;
+	padding: 20px 20px;
+	font-size: 1.4rem;
+	color: #000;
+	text-decoration: none;
+	filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.25));
+	transition: filter 0.3s ease-in;
 
-    &:hover {
-        filter: drop-shadow(5px 20px 35px rgba(0, 0, 0, 0.35));
-    }
+	&:hover {
+		filter: drop-shadow(5px 20px 35px rgba(0, 0, 0, 0.35));
+	}
 }
 
 .coffee-item__img {
-    margin-bottom: auto;
-}
-
-.coffee-item__country {
-    align-self: flex-end;
+	margin-bottom: auto;
+	align-self: center;
 }
 
 .coffee-item__price {
-    font-weight: 700;
-    align-self: flex-end;
+	font-weight: 700;
 }

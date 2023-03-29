@@ -7,8 +7,7 @@ const Spinner = ({ className = "" }) => {
 			initial={{ rotate: "0deg" }}
 			animate={{ rotate: "360deg" }}
 			transition={{ delay: -1, duration: 1, repeat: Infinity, ease: "linear" }}
-			className={`spinner ${className}`}
-		></motion.div>
+			className={`spinner ${className}`}></motion.div>
 	);
 };
 

@@ -3,12 +3,6 @@
 @import "_reset";
 
 // Main and reusable styles
-:root {
-	font-family: "Merienda", cursive;
-	font-weight: 400;
-	color: #000;
-}
-
 #root {
 	min-height: 100vh;
 	display: flex;
@@ -16,9 +10,20 @@
 	justify-content: center;
 }
 
-html,
-body {
+html {
+	font-size: 10px;
 	scroll-behavior: smooth;
+
+	@media (max-width: 450px) {
+		font-size: 9px;
+	}
+}
+
+body {
+	font-family: "Merienda", cursive;
+	font-weight: 400;
+	line-height: 20px;
+	color: #000;
 }
 
 .container {
@@ -40,34 +45,23 @@ body {
 
 .title {
 	font-weight: 700;
-	font-size: 40px;
+	font-size: 4rem;
 	line-height: 58px;
-
-	@media (max-width: 750px) {
-		font-size: 35px;
-	}
-
-	@media (max-width: 450px) {
-		font-size: 30px;
-	}
 }
 
 .subtitle {
-	font-weight: 400;
-	font-size: 24px;
+	font-size: 2.4rem;
 	line-height: 35px;
 }
 
 .description {
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 20px;
+	font-size: 1.4rem;
 }
 
 .error {
 	display: inline-block;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 2rem;
 	margin: 0 auto;
 }
 
@@ -76,8 +70,7 @@ body {
 	text-decoration: none;
 	color: #000;
 	font-weight: 700;
-	font-size: 14px;
-	line-height: 20px;
+	font-size: 1.4rem;
 	padding: 5px 20px;
 	border-radius: 5px;
 	border: none;

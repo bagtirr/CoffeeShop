@@ -19,16 +19,15 @@ const CoffeeList = props => {
 		return sortProducts(coffee, best, activeFilter, searchValue);
 	}, [activeFilter, searchValue, coffee]);
 
-	if (isLoading) {
-		return <Spinner />;
-	} else if (isError) {
-		return <ErrorMessage message={"Failed to load products :("} />;
-	}
-
 	const renderCoffee = items => {
 		if (items.length === 0) {
 			return (
-				<motion.p layout className="error">
+				<motion.p
+					layout
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					transition={{ delay: 0.01 }}
+					className="error">
 					Products not found
 				</motion.p>
 			);
@@ -38,6 +37,12 @@ const CoffeeList = props => {
 			return <CoffeeItem key={id} id={id} {...props} />;
 		});
 	};
+
+	if (isLoading) {
+		return <Spinner />;
+	} else if (isError) {
+		return <ErrorMessage message={"Failed to load products :("} />;
+	}
 
 	const elements = renderCoffee(all ? coffee : filteredCoffee);
 

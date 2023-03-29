@@ -12,7 +12,9 @@ const CoffeeFilters = () => {
 	const filters = useSelector(state => selectAll(state));
 
 	useEffect(() => {
-		dispatch(fetchFilters());
+		if (filters.length === 0) {
+			dispatch(fetchFilters());
+		}
 	}, []);
 
 	const onChangeValue = e => {
@@ -32,8 +34,7 @@ const CoffeeFilters = () => {
 					key={id}
 					className={`filters__button ${activeClass}`}
 					id="filters__button"
-					onClick={() => dispatch(changeActiveFilter(label))}
-				>
+					onClick={() => dispatch(changeActiveFilter(label))}>
 					<span>{label}</span>
 				</button>
 			);
