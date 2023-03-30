@@ -1,4 +1,4 @@
-<img align="left" src="page-screenshot.png" atl="preview"/>
+<img align="left" src="preview.png" atl="preview"/>
 
 # Coffee House☕
 
