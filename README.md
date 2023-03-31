@@ -30,7 +30,7 @@
 - Responsive layout
 - animations
 
-### 🔌 Setting up and running the app
+## 🔌 Setting up and running the app
 ```bash
 # Clone repository:
 git clone https://github.com/bagtirr/CoffeeHouse.git
