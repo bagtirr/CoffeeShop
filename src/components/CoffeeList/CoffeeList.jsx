@@ -20,7 +20,7 @@ const CoffeeList = props => {
 	}, [activeFilter, searchValue, coffee]);
 
 	const renderCoffee = items => {
-		if (items.length === 0) {
+		if (!items.length) {
 			return (
 				<motion.p
 					layout

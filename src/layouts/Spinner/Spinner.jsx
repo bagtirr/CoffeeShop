@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import "./Spinner.scss";
 
-const Spinner = ({ className = "" }) => {
+const Spinner = props => {
+	const { className = "" } = props;
+
 	return (
 		<motion.div
 			initial={{ rotate: "0deg" }}

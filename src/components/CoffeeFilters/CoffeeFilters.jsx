@@ -12,7 +12,7 @@ const CoffeeFilters = () => {
 	const filters = useSelector(state => selectAll(state));
 
 	useEffect(() => {
-		if (filters.length === 0) {
+		if (!filters.length) {
 			dispatch(fetchFilters());
 		}
 	}, []);
@@ -22,7 +22,7 @@ const CoffeeFilters = () => {
 	};
 
 	const renderFilters = items => {
-		if (items.length === 0) {
+		if (!items.length) {
 			return <p className="error">Filters not found</p>;
 		}
 

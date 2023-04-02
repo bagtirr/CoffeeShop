@@ -12,7 +12,9 @@ import "./ProductPage.scss";
 import { useGetSingleCoffeeQuery } from "../../api/coffeeApi";
 
 // Layout for information about product
-const ProductLayout = ({ coffee, onPreviousPage }) => {
+const ProductLayout = props => {
+	const { coffee, onPreviousPage } = props;
+
 	return (
 		<>
 			<button className="back-button" onClick={onPreviousPage}>
