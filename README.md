@@ -10,6 +10,7 @@
 ## ⚙ Technologies
 
 -   JS (ES6)
+-   React
 -   Redux Toolkit + RTK Query
 -   React Router
 -   React Lazy
