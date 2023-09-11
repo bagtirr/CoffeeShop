@@ -4,7 +4,7 @@
 
 -   [✅Deployed Project](https://coffee-house-bagtirr.vercel.app)
 -   [📐Template](https://www.figma.com/file/Iu4Lul87WvzdM5CXFwE4qtZ6/Coffee-shop?node-id=0%3A1&t=CoIgYEL8RhxuoPSe-1)
--   SPA Template for coffee shop </br>
+-   SPA coffee shop </br>
 -   Practical project for the React course🎓
 
 ## ⚙ Technologies
